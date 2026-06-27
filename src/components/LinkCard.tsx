@@ -94,6 +94,7 @@ export const LinkCard: React.FC<LinkCardProps> = ({
         className="link-card-share-btn"
         onClick={handleShareClick}
         aria-label={`Share ${title}`}
+        data-tooltip="Share link"
       >
         <svg width="4" height="16" viewBox="0 0 4 16" fill="currentColor">
           <path d="M2 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>

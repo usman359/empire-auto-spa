@@ -620,3 +620,511 @@
 .footer-links a:hover {
   color: var(--text-primary);
 }
+
+/* ==========================================
+   Tooltips System
+   ========================================== */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translate(-50%, 6px);
+  background: #121217;
+  color: var(--white);
+  border: 1px solid rgba(54, 194, 207, 0.35);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1001;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* Tooltips in Top Bar should render below the buttons to prevent screen clipping */
+.top-bar-btn[data-tooltip]::after {
+  bottom: auto;
+  top: 125%;
+  transform: translate(-50%, -6px);
+}
+
+.top-bar-btn[data-tooltip]:hover::after {
+  transform: translate(-50%, 0);
+}
+
+
+/* ==========================================
+   ShareModal Component Styling
+   ========================================== */
+.share-modal-container {
+  width: 92%;
+  max-width: 440px;
+  background-color: #10121a;
+  border-radius: 28px;
+  padding: 24px;
+  border: 1px solid rgba(54, 194, 207, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(54, 194, 207, 0.1);
+  animation: scaleIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1001;
+}
+
+.share-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.share-modal-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.2px;
+}
+
+.share-modal-close-btn {
+  background: rgba(54, 194, 207, 0.08);
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.share-modal-close-btn:hover {
+  background: rgba(54, 194, 207, 0.16);
+  transform: scale(1.05);
+}
+
+.share-preview-card {
+  background: linear-gradient(135deg, #161a29 0%, #0d0f17 100%);
+  border: 1px solid rgba(54, 194, 207, 0.15);
+  border-radius: 20px;
+  padding: 28px 20px;
+  text-align: center;
+  margin: 16px 0 24px;
+  box-shadow: inset 0 0 15px rgba(54, 194, 207, 0.05);
+}
+
+.share-preview-avatar-container {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--text-primary) 0%, #1e2230 100%);
+  margin: 0 auto 12px;
+}
+
+.share-preview-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #10121a;
+}
+
+.share-preview-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.share-preview-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.share-preview-verified-badge {
+  color: #1d9bf0;
+  display: flex;
+  align-items: center;
+}
+
+.share-preview-handle-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--text-muted);
+}
+
+.share-preview-linktree-icon {
+  margin-top: 1px;
+}
+
+.share-preview-handle {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* Horizontal Social Sharing Scroll */
+.share-social-scroll {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin-bottom: 24px;
+  padding: 4px 0;
+}
+
+.share-social-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.share-social-track {
+  display: flex;
+  gap: 16px;
+  padding: 0 4px;
+}
+
+.share-social-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 64px;
+  flex-shrink: 0;
+}
+
+.share-social-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.share-social-item:hover .share-social-icon-wrapper {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.share-social-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* CTA signup area */
+.share-cta-section {
+  text-align: center;
+  border-top: 1px solid rgba(54, 194, 207, 0.1);
+  padding-top: 20px;
+}
+
+.share-cta-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.share-cta-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.share-cta-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.share-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.share-btn-primary {
+  background-color: var(--text-primary);
+  color: var(--black);
+}
+
+.share-btn-primary:hover {
+  background-color: #4fe7f5;
+  box-shadow: 0 4px 12px rgba(54, 194, 207, 0.3);
+}
+
+.share-btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid rgba(54, 194, 207, 0.3);
+}
+
+.share-btn-secondary:hover {
+  background-color: rgba(54, 194, 207, 0.06);
+  border-color: var(--text-primary);
+}
+
+
+/* ==========================================
+   PromoModal (Linktree Brand Overlay)
+   ========================================== */
+.promo-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #d2e823;
+  border-radius: 28px;
+  z-index: 1000;
+  overflow-y: auto;
+  animation: fadeIn 0.25s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-modal-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.promo-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #193c14;
+}
+
+.promo-logo {
+  display: flex;
+  align-items: center;
+}
+
+.promo-close-btn {
+  background: rgba(25, 60, 20, 0.08);
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #193c14;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.promo-close-btn:hover {
+  background: rgba(25, 60, 20, 0.16);
+  transform: scale(1.05);
+}
+
+.promo-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.promo-headline {
+  font-size: 28px;
+  font-weight: 800;
+  color: #193c14;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.promo-headline .highlight-text {
+  color: #502274;
+}
+
+.promo-subheading {
+  font-size: 14px;
+  color: #193c14;
+  line-height: 1.45;
+  margin-bottom: 24px;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+.promo-claim-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.promo-input-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 0 16px;
+  height: 52px;
+  box-shadow: 0 2px 8px rgba(25, 60, 20, 0.08);
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.promo-input-container:focus-within {
+  border-color: #502274;
+}
+
+.promo-prefix {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(25, 60, 20, 0.5);
+  margin-right: 2px;
+}
+
+.promo-input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  font-size: 15px;
+  font-weight: 600;
+  color: #193c14;
+  background: transparent;
+}
+
+.promo-input::placeholder {
+  color: rgba(25, 60, 20, 0.35);
+  font-weight: 500;
+}
+
+.promo-claim-btn {
+  height: 52px;
+  border-radius: 26px;
+  background-color: #502274;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(80, 34, 116, 0.2);
+  transition: all 0.2s ease;
+}
+
+.promo-claim-btn:hover {
+  background-color: #3b1758;
+  transform: translateY(-1px);
+}
+
+.promo-claim-btn:active {
+  transform: translateY(0);
+}
+
+.promo-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.promo-link {
+  color: #193c14;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  align-self: flex-start;
+  opacity: 0.85;
+}
+
+.promo-link:hover {
+  opacity: 1;
+}
+
+.promo-cta-box {
+  display: flex;
+  margin-bottom: 28px;
+}
+
+.promo-signup-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 24px;
+  background-color: #193c14;
+  color: #d2e823;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(25, 60, 20, 0.15);
+  transition: all 0.2s ease;
+}
+
+.promo-signup-btn:hover {
+  background-color: #0d210a;
+  transform: translateY(-1px);
+}
+
+.promo-mockup-container {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.promo-mockup-img {
+  width: 75%;
+  max-height: 220px;
+  object-fit: contain;
+  margin-top: 10px;
+  transform: translateY(20px);
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(20px);
+    opacity: 1;
+  }
+}
