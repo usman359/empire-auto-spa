@@ -111,29 +111,17 @@ function App() {
             iconType="email" 
           />
 
-          {/* Branch Locations Section */}
+          {/* Branch Location Section */}
           <div className="section-divider">
-            <h3 className="section-title">Branch Locations!</h3>
+            <h3 className="section-title">Branch Location!</h3>
           </div>
           
           <div className="links-group">
-            <LinkCard 
-              title="College Road Lahore Branch!" 
-              url="https://maps.app.goo.gl/ZGuX1SmZStV2g9ie7?g_st=com.google.maps.preview.copy" 
-              iconType="pin" 
-            />
-            
             <LinkCard 
               title="Islamabad Branch!" 
               addressText="G-9/4, G-9, Islamabad"
               iconType="pin" 
               onClick={() => setIsMapOpen(true)}
-            />
-            
-            <LinkCard 
-              title="Ring Road Lahore Branch!" 
-              url="https://maps.app.goo.gl/g7rYTPjMhXxToiuEA?g_st=com.google.maps.preview.copy" 
-              iconType="pin" 
             />
           </div>
 

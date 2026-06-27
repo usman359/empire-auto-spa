@@ -26,7 +26,7 @@ export const PromoModal: React.FC<PromoModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }}>
-      <DialogContent className="promo-modal-container bg-[#d2e823] border-none text-[#193c14] p-6 rounded-[28px] max-w-[440px] w-[92%] shadow-2xl overflow-y-auto max-h-[90vh]">
+      <DialogContent className="promo-modal-container bg-[#d2e823] border-none text-[#193c14] p-6 rounded-[28px] max-w-[500px] w-[92%] shadow-2xl overflow-y-auto max-h-[90vh]">
         <DialogHeader className="promo-modal-header text-left flex justify-between items-center border-none p-0">
           <DialogTitle className="promo-logo flex items-center text-[#193c14]">
             {/* Linktree symbol (asterisk) in black */}

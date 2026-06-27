@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShareMenu } from './ShareMenu';
+import { LinkShareModal } from './LinkShareModal';
 
 interface LinkCardProps {
   title: string;
@@ -102,11 +102,15 @@ export const LinkCard: React.FC<LinkCardProps> = ({
       </button>
 
       {showShare && (
-        <ShareMenu
-          url={shareUrl}
-          title={title}
-          onClose={() => setShowShare(false)}
-        />
+        <div onClick={(e) => e.stopPropagation()} onKeyDown={(e) => e.stopPropagation()}>
+          <LinkShareModal
+            isOpen={showShare}
+            onClose={() => setShowShare(false)}
+            title={title}
+            url={shareUrl}
+            iconType={iconType}
+          />
+        </div>
       )}
     </div>
   );

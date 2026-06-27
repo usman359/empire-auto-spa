@@ -91,7 +91,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }}>
-      <DialogContent className="share-modal-container bg-[#10121a] border-cyan-500/20 text-[#36c2cf] p-6 rounded-[28px] max-w-[440px] w-[92%] shadow-2xl">
+      <DialogContent className="share-modal-container bg-[#10121a] border-cyan-500/20 text-[#36c2cf] p-6 rounded-[28px] max-w-[500px] w-[92%] shadow-2xl">
         <DialogHeader className="share-modal-header text-left flex justify-between items-center border-none p-0">
           <DialogTitle className="share-modal-title text-white text-[17px] font-bold tracking-tight">
             Share Linktree
